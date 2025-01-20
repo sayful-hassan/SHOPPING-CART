@@ -5,9 +5,9 @@ const productHelpers = require('../helpers/product-helpers');
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
-  productHelpers.getAllProducts().then((products) => {
-    console.log(products)
-    res.render('admin/view-products', { admin: true, products })
+  productHelpers.getAllProducts().then((product) => {
+    console.log(product)
+    res.render('admin/view-products', { admin: true, product })
   })
 });
 router.get('/add-product', (req, res) => {
@@ -20,7 +20,7 @@ router.post('/add-product', (req, res) => {
   productHelper.addProduct(req.body, (id) => {
     let image = req.files.image
     console.log(id)
-    image.mv('./public/product-images/' + id + '.jpg', (err) => {
+    image.mv('/product-images/' + id + '.jpg', (err) => {
       if (!err) {
         res.render('admin/add-product')
       } else {
