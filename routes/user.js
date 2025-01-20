@@ -11,6 +11,10 @@ productHelpers.getAllProducts().then((product) => {
     res.render('user/view-products', { product })
   })
 });
+router.get('/login', (req, res)=>{
+  res.render('user/login')
+
+})
 
 module.exports = router;
  
