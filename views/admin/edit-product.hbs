@@ -1,0 +1,40 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+
+            <h2 class="text-center">Edit Product</h2>
+            <form action="/admin/edit-product/{{product._id}}" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Name</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput"
+                        placeholder="Enter Name" name="name" value="{{product.name}}">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Category</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput2"
+                        placeholder="Enter Category" name="category" value="{{product.category}}">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Price</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput2"
+                        placeholder="Enter Price" name="price" value="{{product.price}}">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Description</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput2"
+                        placeholder="Enter Description" name="description" value="{{product.description}}">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Image</label>
+                    <img src="/product-images/{{product._id}}.jpg" alt="" style="width: 100px;height:auto">
+                    <input type="file" class="form-control" id="formGroupExampleInput2"
+                        placeholder="Click to add" name="image">
+                </div>
+                <button type="submit" class="btn btn-info">Submit</button>
+            </form>
+
+            </div>
+        </div>
+    </div>
+</section>
