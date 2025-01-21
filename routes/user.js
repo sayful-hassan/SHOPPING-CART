@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const productHelpers = require('../helpers/product-helpers');
 const userHelpers = require('../helpers/user-helpers');
+const { response } = require('../app');
 
 //middle ware
 const verifyLogin=(req,res,next)=>{
@@ -37,6 +38,9 @@ router.get('/signup', (req, res) => {
 router.post('/signup', (req, res) => {
   userHelpers.doSignUp(req.body).then((res) => {
     console.log(res)
+    req.session.loggedIn =true
+    req.session.user =response
+    res.redirect('/')
   })
 })
 router.post('/login', (req, res) => {
